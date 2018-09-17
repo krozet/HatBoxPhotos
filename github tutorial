@@ -1,0 +1,107 @@
+*****Easiest way for developing in your branch and the correct way to push without making conflicts*****
+
+1. Make sure your master is always the newest by 
+
+	1.1 "git checkout develop" 
+
+	1.2 "git pull origin develop".
+
+2. Check out to your own branch, make it merge with master, then do work, then push.
+
+	2.1 "git checkout [-b] your_branch". (Add -b if you are creating a new branch. 
+
+	2.2 Merge your branch with your master(develop in this case) by "git pull origin develop"
+
+	2.3 Working.......(making changes, add new file, remove file)
+
+	2.4 Make sure you have the newest codes with master again(because someone might already commit to master during your work) by "git pull origin develop" (You are still in your_branch)
+
+	2.5 "git push origin your_branch". (Here push to your_branch, not master/develop)
+
+3. Go to Github website, project page, create new pull request (compare develop and your branch)
+
+
+
+
+4. Sit tight and wait for approval of pull request
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================================
+
+
+
+
+If you wanna create a new project, please follow the step 1-7, otherwise from 8
+
+
+
+1. mkdir myproject (create a new folder name as myprojet)
+
+2. cd myproject (enter folder myproject)
+
+3. git init (initialize current directory to be a repo)
+
+4. git add remote origin http://xxxxxxxxxx
+
+5. make changes in directory, e.g. create a text file test.txt
+
+6. git add test.txt
+
+7. git push origin master
+
+
+
+
+Now, you have both local git repo and remote repo
+
+-------------------------------------------------
+
+
+When you wanna develop every new function or do some adjust.
+
+
+
+
+*****before step 8, make sure you have the newest develop branch***************
+
+***** git checkout -b develop origin/develop should create a new develop branch******
+
+
+
+
+8. git checkout -b develop your_branch (here we create a new branch and copy everything in develop branch to your new branch
+
+9. (Now your are in "your_branch") make changes
+
+10. git pull origin develop (make sure develop branch has the newest commit)
+
+11. git checkout develop
+
+12. git merge your_branch (merge your new feature in your_branch into develop branch)
+
+13. git push origin develop
+
+14. git branch -d your_branch (delete your branch)
+
+
+Attention: in this condition, even anyone change the develop during you coding, when you finished, do the step 10, your develop branch is the newest
+
+（important, or there will be conflict). When do the step 12，new feature in your_branch will be added into develop branch. 
+
+-------------------------------------------------
+
+Notice: Never touch master unless all group member agree and review all codes in develop branch.
